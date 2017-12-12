@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title><ui:insert name="title">:: Welcome to Farm Monitoring ::</ui:insert></title>
+        <link rel="stylesheet" href="../css/pfcrud.css"/>
+        <script src="../css/pfcrud.js"/>
+
+        <style type="text/css">
+            .ui-panel, .myPanel.ui-panel {
+                text-align: center !important;
+                border-color: rgb(80,135,50);
+            }
+        </style>
+
+        <link rel="stylesheet" href="../css/styles.css"/>
+        <script src="../css/script.js"></script>       
+        <ui:insert name="head"> 
+
+        </ui:insert>
+    </h:head>
+
+    <h:body style="min-width:1130px; min-height: 580px;" rendered="#{loginBean.checkSession()}">
+
+        <p:growl id="growl" life="3000"/>
+        <p:layout fullPage="true">
+            <p:layoutUnit position="north" size="80"  style="border:none; padding:0px; margin:0px;">
+                <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                    <tr>
+                        <td width="10%" background="../appimages/headbg.png" align="left"><img src='../appimages/headerleft.png' > </img></td>
+                        <td width="45%" background="../appimages/headbg.png" align="center"><img src='../appimages/farmmonitor.png' > </img></td>
+                        <td width="45%" background="../appimages/headbg.png" align="right"><img src="../appimages/headerright.png"> </img>
+                        </td>
+                    </tr>
+                </table>
+            </p:layoutUnit>
+
+            <p:layoutUnit position="center"  style="border:none; padding:0px; margin:0px;">
+                <div id='cssmenu' style="border:none; float:left; margin-left:3px;">
+                    <ul>
+                        <h:form>
+                            <span style="font-size:12px;"><b>Welcome #{loginBean.uname}!</b> 
+                                <h:commandLink action="#{loginBean.logout}" value="Logout" style="font-size:12px;font-weight:bold;">
+                                </h:commandLink><br></br>
+                            </span>
+                            <span style="font-size:10px;">Last login date: #{loginBean.lastlogindate}</span>
+                        </h:form>
+                        <li id="li1"><a href='../pages/drawmap.xhtml'><span>Farms</span></a></li>
+                        <li id="li2"><a href='../pages/drawimages.xhtml'><span>Images</span></a></li>
+                        <li id="li3"><a href='../pages/sendemail.xhtml'><span>Email</span></a></li>
+                    </ul>
+                </div>
+                <div style="margin-left:176px; position:relative; margin-right:5px; float:none;">
+                    <ui:insert name="body"> 
+
+                    </ui:insert>
+                    <ui:insert name="body1"> 
+
+                    </ui:insert>
+                </div>    
+            </p:layoutUnit>    
+            <p:layoutUnit position="south" style="border:none; margin:0px; padding:0px;">
+                <p style="background-color:rgb(80,135,50); color:rgb(255,255,255); font-size:10px; line-height:18px; margin:0; padding:0; text-align:center;">SDP Project</p>
+            </p:layoutUnit>
+        </p:layout>
+
+    </h:body>
+
+</html>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="hibernate.Users" table="user" catalog="farmmonitor">
+        <id name="userid" type="java.lang.Integer">
+            <column name="userid" />
+            <generator class="assigned" />
+        </id>
+        <property name="username" type="java.lang.String">
+            <column name="username" length="20" not-null="true" />
+        </property>
+        <property name="password" type="java.lang.String">
+            <column name="password" length="20" not-null="true" />
+        </property>
+        <property name="lastlogindate" type="java.util.Date">
+            <column name="lastlogindate" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

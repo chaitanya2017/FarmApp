@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:m="http://code.google.com/p/gmaps4jsf/"
+                template="/WEB-INF/include/template.xhtml">
+
+    <ui:define name="head">
+        <link rel="stylesheet" type="text/css" href="../css/lightslider.css" />
+        <link rel="stylesheet" type="text/css" href="../css/popup.css" />
+        <link rel="stylesheet" type="text/css" href="../css/styles.css" />
+        <script type="text/javascript" src="../css/lightslider.min.js"></script>	
+
+
+    </ui:define>
+
+    <ui:define name="body">
+        <h:form id="form">
+                   
+            <p:panel style="padding:0px; min-width:820px; size:landscape; min-height:530px; margin:0px;">
+                <script type="text/javascript">
+                    var slider;
+                    $(document).ready(function () {
+                        slider = $('#imageGallery').lightSlider({
+                            gallery: true,
+                            loop: true,
+                            item: 1,
+                            vertical: true,
+                            verticalHeight: 450,
+                            vThumbWidth: 100,
+                            thumbItem: 5,
+                            thumbMargin: 3,
+                            slideMargin: 3,
+                            enableDrag: false,
+                            currentPagerPosition: 'left',
+                            adaptiveHeight: false,
+                            speed: 0,
+                            pause: 1000,
+                            onSliderLoad: function (el) {
+                                el.lightGallery({
+                                    selector: '#imageGallery .lslide'
+                                });
+                            }
+                        });
+                    });
+
+                    var playing = false;
+                    function playslider()
+                    {
+                        playing = true;
+                        slider.play();
+                    }
+
+                    function pauseslider()
+                    {
+                        playing = false;
+                        slider.pause();
+                        playing = false;
+                        slider.pause();
+                    }
+
+                    function prevslide()
+                    {
+                        slider.goToPrevSlide();
+                    }
+
+                    function nextslide()
+                    {
+                        slider.goToNextSlide();
+                    }
+
+                    function prevslidepage()
+                    {
+                        var i = slider.getCurrentSlideCount();
+                        slider.goToSlide(i - 5);
+                    }
+
+                    function nextslidepage()
+                    {
+                        var i = slider.getCurrentSlideCount();
+                        slider.goToSlide(i + 5);
+                    }
+
+                    function firstslide()
+                    {
+                        slider.goToSlide(1);
+                    }
+
+                    function lastslide()
+                    {
+                        slider.goToSlide(#{imageBean.images.size()});
+                    }
+
+                    function createslider()
+                    {
+                        var pause = jQuery("[id$='txtTime']").val();
+                        slider.pause();
+                        playing = false;
+                        delete slider;
+                        slider = $('#imageGallery').lightSlider({
+                            gallery: true,
+                            loop: true,
+                            item: 1,
+                            vertical: true,
+                            verticalHeight: 450,
+                            vThumbWidth: 100,
+                            thumbItem: 5,
+                            thumbMargin: 3,
+                            slideMargin: 3,
+                            enableDrag: false,
+                            currentPagerPosition: 'left',
+                            adaptiveHeight: false,
+                            speed: 0,
+                            pause: pause
+                        });
+
+
+                    }
+
+                    var element;
+                    var popup = "";
+                    function openPopUp(pop) {
+                        if (playing == false)
+                        {
+                            popup = pop;
+                            element = document.getElementById(pop);
+                            element.style.display = "block";
+                        }
+
+                    }
+
+                    function closePopUp(pop) {
+                        if (popup != "")
+                        {
+                            element = document.getElementById(popup);
+                            element.style.display = "none";
+                            popup = "";
+                        }
+                    }
+                </script>
+                <ui:repeat var="image" value="#{imageBean.images}"  varStatus="status" offset="0" step="1" size="#{imageBean.images.size()}">
+                    <div id="#{image.path}" class="popUpDisplay" >
+                        <p:panel id="mainPanel" style="padding:0px; size:landscape; margin:0px;"> 
+                        </p:panel>
+                    </div>
+                </ui:repeat>
+           
+
+             <p:panel id="myPanel" style="padding:0px; border:hidden; width:100%; ">   
+                 <p:panelGrid style="padding:0px; border:hidden; width:100%; ">
+                        <p:row>
+                            <p:column style="text-align:center;border:hidden; padding:0px; padding-bottom:1px;">
+                                <p:outputLabel value="Images" class="heading"/>
+                            </p:column>
+                        </p:row>
+                    </p:panelGrid>    
+                    <p:panelGrid id="postPanel" style="padding:0px; border:hidden; width:100%; ">    
+                        <p:row>
+                            <p:column style="width:60px; padding:0px;  text-align:left;">
+                                <p:outputLabel class="TextFont" value="Farm&nbsp;:"/>
+                            </p:column>
+                            <p:column style="border:hidden; width:165px; padding:0px;  text-align:left;">
+                                <p:selectOneMenu id="laylist" value="#{imageBean.selectedFarmName}" required="true" requiredMessage="Please select Farm" style="width:150px; height:22px; vertical-align: middle;">
+                                    <f:selectItem itemValue="#{null}" itemLabel="select-one"/>
+                                    <f:selectItems value="#{imageBean.listFarms}" var="farm" itemLabel="#{farm.farmname}" itemValue="#{farm.farmname}"/>
+                                   </p:selectOneMenu>
+                            </p:column>
+
+                            <p:column style="width:90px; padding:0px;  text-align:left;">
+                                <p:outputLabel class="TextFont" value="Monitor&nbsp;Point&nbsp;:"/>
+                            </p:column>
+                            <p:column style="border:hidden; width:165px; padding:0px;  text-align:left;">
+                                <p:selectOneMenu value="#{imageBean.selectedMonitorPointId}" id="mplist" required="true" requiredMessage="Please select monitorpoint" style="width:150px; height:22px; vertical-align: middle;">
+                                    <f:selectItem itemValue="#{null}" itemLabel="select-one"/> 
+                                    <f:selectItems value="#{imageBean.monitorPoints}" var="mp" itemLabel="#{mp.monitorPointName}" itemValue="#{mp.monitorPointid}"/>
+                                </p:selectOneMenu>
+                            </p:column>
+                              
+                            <p:column style="border:hidden; width:110px; padding:0px; text-align:left;">
+                                <p:commandButton value="Show" action="#{imageBean.getMonitorPointImages}" style="width:150px; height:25px; vertical-align: middle;" class="buttonFont" update="@form" >
+                                    <p:growl id="growl1"/>
+                                </p:commandButton>
+                            </p:column>
+                            <p:column style="border:hidden; padding:0px;">
+                                &nbsp;
+                            </p:column>
+                        </p:row>    
+                    </p:panelGrid>
+               </p:panel>
+
+                <p:outputPanel style="width:920px; text-align:left; float:left; margin-top:3px; margin-left:0px;" id="slideshow" rendered="#{imageBean.visible}">
+                    <ul id="imageGallery" style="">
+                        <ui:repeat var="image" value="#{imageBean.images}"  varStatus="status" offset="0" step="1" size="#{imageBean.images.size()}">
+                            <li data-thumb="../images/#{image.path}" data-src="../images/#{image.path}" data-title="#{image.imagetakendate}">
+                                <img src="../images/#{image.path}" id="img#{image.path}" style="width:auto; height:auto; max-width:600px; max-height:435px;"/>
+                                <p:outputLabel value="Total Images Count: #{imageBean.size}" style="width:421px; position:relative; float:right;  display:block; "/>
+                             </li>
+                        </ui:repeat> 
+                    </ul>
+                    <div style="width:1010px; text-align:center; margin-top:3px;">
+                        <p:commandButton id="btnfirst" icon="ui-icon-arrowthickstop-1-w" style="width:28px; height:25px;" ajax="false" onclick="javascript:firstslide(); return false;" ></p:commandButton>&nbsp;&nbsp;
+                        <p:commandButton id="btnpreviouspage" icon="ui-icon-circle-arrow-w" style="width:28px; height:25px;" ajax="false" onclick="javascript:prevslidepage(); return false;" ></p:commandButton>&nbsp;&nbsp;
+                        <p:commandButton id="btnprevious" icon="ui-icon-arrowthick-1-w" style="width:28px; height:25px;" ajax="false" onclick="javascript:prevslide(); return false;" ></p:commandButton>&nbsp;&nbsp;
+                        <p:commandButton id="btnplay" icon="ui-icon-play" style="width:28px; height:25px;" ajax="false" onclick="javascript:playslider(); return false;"></p:commandButton>&nbsp;&nbsp;
+                        <p:commandButton id="btnpause" icon="ui-icon-pause" style="width:28px; height:25px;" ajax="false" onclick="javascript:pauseslider(); return false;" ></p:commandButton>&nbsp;&nbsp;                      
+                        <p:commandButton id="btnnext" icon="ui-icon-arrowthick-1-e" style="width:28px; height:25px;" ajax="false" onclick="javascript:nextslide(); return false;" ></p:commandButton>&nbsp;&nbsp;
+                        <p:commandButton id="btnnextpage" icon="ui-icon-circle-arrow-e" style="width:28px; height:25px;" ajax="false" onclick="javascript:nextslidepage(); return false;" ></p:commandButton>&nbsp;&nbsp;
+                        <p:commandButton id="btnlast" icon="ui-icon-arrowthickstop-1-e" style="width:28px; height:25px;" ajax="false" onclick="javascript:lastslide();
+                                return false;" ></p:commandButton>   
+
+                        <p:tooltip id="toolTipPlay" for="btnplay" value="Play" />
+                        <p:tooltip id="toolTipPause" for="btnpause" value="Pause" />
+                        <p:tooltip id="toolTipPrevious" for="btnprevious" value="Previous Slide" />
+                        <p:tooltip id="toolTipNext" for="btnnext" value="Next Slide" />                             
+                        <p:tooltip id="toolTipPreviousPage" for="btnpreviouspage" value="Previous Slide Page" />
+                        <p:tooltip id="toolTipFirst" for="btnfirst" value="First Slide" />
+                        <p:tooltip id="toolTipNextPage" for="btnnextpage" value="Next Slide Page" />
+                        <p:tooltip id="toolTipLast" for="btnlast" value="Last Slide" />
+                    </div>
+                </p:outputPanel>                
+            </p:panel> 
+            </h:form>
+        
+        <h:outputScript target="body">
+            makeactive(2);
+        </h:outputScript>
+    </ui:define>
+
+</ui:composition>

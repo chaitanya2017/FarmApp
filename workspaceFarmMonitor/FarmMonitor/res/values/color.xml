@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="buttontextcolor1">#ffffff</color>
+    <color name="buttontextcolor">#000000</color>
+   	<color name="normaltextcolor">#1A1A1A</color>
+   	<color name="maptextcolor">#FFFFff</color>
+   	<color name="normaltextcolor1">#ffffee</color>
+    <color name="my_green">#ff59ab1b</color>
+    <color name="app_bgcolor">#ffeded</color>
+    <color name="txt_grey">#ff7070</color>
+    <color name="headercolor">#ffff66</color>
+    <color name="red">#ff0000</color>
+    <color name="black">#ff0000</color>
+    <color name="HeaderMainTextColor">#ffffee</color>
+    <color name="HeaderMainBackColor">#295200</color>
+    <color name="HeaderTextColor">#ffffeebb</color>
+    <color name="HeaderBackColor">#295200</color>
+    <color name="SelectedBackColor">#001F00</color>
+    <color name="listitem_green">#FAFFFA</color>
+    <color name="yellowishtextcolor">#FF9933</color>
+    <color name="markerBackColor">#FFAD5C</color>
+    <color name="markerTextColor">#1A0F05</color>
+    <color name="timeTextColor">#004C00</color>
+    <color name="timeBackColor">#E6E6E6</color>
+    <color name="gridBackColor">#007A00</color>
+    <color name="gridSelectColor">#216242</color>
+    <color name="mapmenutextcolor">#ffffff</color>
+    <color name="datetextcolor">#FFFFFF</color>
+    <color name="dategray1">#ffffff</color>
+    <color name="cameratextcolor">#66FF66</color>    
+    
+    <color name="reportdatatextcolor">#4C4C4C</color>
+    <color name="reportdatabackcolor1">#FFFFFF</color>
+    <color name="reportdatabackcolor2">#007A00</color>
+    <color name="reportheadertextcolor">#ffffff</color>
+    <color name="reportheaderbackcolor">#295200</color>
+    <color name="reportrowbackcolor">#CCCCCC</color>
+    <color name="reportheaderrowbackcolor">#666666</color>
+    <color name="reporttopheadertexttcolor">#B2B2B2</color>
+    <color name="reporttopheaderbackcolor">#333333</color>
+    <color name="reportfootertextcolor">#B2B2B2</color>
+    <color name="reportfooterbackcolor">#4C4C4C</color>
+    <color name="reportback">#CCCCCC</color>    
+    
+    <color name="reportdatatextcolor_2">#002400</color>
+    <color name="reportdatabackcolor1_2">#8FB28F</color>
+    <color name="reportdatabackcolor2_2">#7A997A</color>
+    <color name="reportheadertextcolor_2">#669900</color>
+    <color name="reportheaderbackcolor_2">#293D00</color>
+    <color name="reportrowbackcolor_2">#000000</color>
+    
+    <color name="popback">#001A00</color>
+    <color name="separator">#B2B2B2</color>
+    <color name="menubackground">#ff99cc00</color>
+    <color name="menumargin">#ffffff</color>
+    <color name="gray">#808080</color>
+    
+</resources>

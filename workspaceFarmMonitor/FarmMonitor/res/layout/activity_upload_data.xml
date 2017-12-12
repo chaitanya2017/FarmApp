@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:animateLayoutChanges="true"
+    android:background="@color/dategray1" >
+
+    <ScrollView
+        android:id="@+id/scrollViewUploadData"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:id="@+id/LinearLayoutUploadData"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TableLayout
+                android:id="@+id/tableLayoutUploadData"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:stretchColumns="*"
+                android:textColor="@color/normaltextcolor" >
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/staticfieldheight"
+                        android:background="@color/menubackground"
+                        android:gravity="center"
+                        android:paddingLeft="3dp"
+                        android:singleLine="true"
+                        android:text="Upload Data"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/sptextsize" >
+                    </TextView>
+                </TableRow>
+
+               
+                
+               
+
+                 <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="5dip" >
+                    </View>
+                    </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="45dip" >
+                    </View>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="5dp" >
+
+                    <Button
+                        android:id="@+id/buttonUploadDataUploadData"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center_vertical|center_horizontal"
+                        android:background="@color/menubackground"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:text="   Upload Data   "
+                        android:textColor="@android:color/white"
+                        android:textSize="18sp" >
+                    </Button>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="45dip" >
+                    </View>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="5dp" >
+
+                    <Button
+                        android:id="@+id/buttonUploadDataUploadPictures"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center_vertical|center_horizontal"
+                        android:background="@color/menubackground"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:text="Upload Pictures"
+                        android:textColor="@android:color/white"
+                        android:textSize="18sp" >
+                    </Button>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="10dip" >
+                    </View>
+                </TableRow>
+            </TableLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

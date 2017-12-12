@@ -1,0 +1,114 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linearLayoutMainMenu"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <fragment
+        android:id="@+id/mapfragmentCreatePerimeterMap"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        class="com.google.android.gms.maps.MapFragment" >
+
+        <TableLayout
+            android:id="@+id/tableLayoutMainSelectionMapMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:stretchColumns="*" >
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent" >
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent" >
+
+                <TextView
+                    android:id="@+id/textViewCPWalk"
+                    android:layout_width="0px"
+                    android:layout_height="45dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
+                    android:layout_weight="1"
+                    android:background="@color/menubackground"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text="Walk"
+                    android:textColor="@color/mapmenutextcolor"
+                    android:textSize="15dp" >
+                </TextView>
+
+                 <TextView
+                    android:id="@+id/textViewCPMyLocation"
+                    android:layout_width="0px"
+                    android:layout_height="45dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
+                    android:layout_weight="1"
+                    android:background="@color/menubackground"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text="My Loc"
+                    android:textColor="@color/mapmenutextcolor"
+                    android:textSize="15dp" >
+                </TextView>
+
+                <TextView
+                    android:id="@+id/textViewCPSave"
+                    android:layout_width="0px"
+                    android:layout_height="45dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
+                    android:layout_weight="1"
+                    android:background="@color/menubackground"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text="Save"
+                    android:textColor="@color/mapmenutextcolor"
+                    android:textSize="15dp" >
+                </TextView>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/textViewCPLatLan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|center_vertical"
+                    android:layout_span="3"
+                    android:gravity="left|center_vertical"
+                    android:singleLine="true"
+                    android:text="Lat/Lan: "
+                    android:textColor="@color/mapmenutextcolor"
+                    android:textSize="16sp" >
+                </TextView>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/textViewCPTotalPoints"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|center_vertical"
+                    android:layout_span="3"
+                    android:gravity="left|center_vertical"
+                    android:singleLine="true"
+                    android:text="Total Points: 0"
+                    android:textColor="@color/mapmenutextcolor"
+                    android:textSize="16sp" >
+                </TextView>
+            </TableRow>
+        </TableLayout>
+    </fragment>
+
+</LinearLayout>

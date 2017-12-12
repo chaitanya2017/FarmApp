@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title><ui:insert name="title">:: Welcome to Farm Monitoring ::</ui:insert></title>
+        <link rel="stylesheet" href="../css/pfcrud.css"/>
+        <link rel="stylesheet" href="../css/styles.css"/>
+        <script src="../css/pfcrud.js"/>
+        
+        <style type="text/css">
+            .ui-panel, .myPanel.ui-panel {
+                text-align: center !important;
+                border:none;
+            }
+       </style>        
+             
+       <ui:insert name="head"> 
+            
+       </ui:insert>
+    </h:head>
+    
+    <h:body style="min-width: 920px">
+        
+        <p:growl id="growl" life="3000"/>
+        <p:layout fullPage="true">
+            <p:layoutUnit position="north" size="80"  style="border:none; padding:0px; margin:0px;">
+                <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                        <td width="10%" background="../appimages/headbg.png" align="left"><img src='../appimages/headerleft.png' > </img></td>
+                        <td width="45%" background="../appimages/headbg.png" align="center"><img src='../appimages/farmmonitor.png' > </img></td>
+                        <td width="45%" background="../appimages/headbg.png" align="right"><img src="../appimages/headerright.png"> </img>
+                        </td>
+                </tr>
+                </table>
+            </p:layoutUnit>
+
+            <p:layoutUnit position="center"  style="border:none; padding:0px; margin:0px;">
+                <ui:insert name="body"> 
+
+                </ui:insert>
+                    
+            </p:layoutUnit>    
+            <p:layoutUnit position="south" style="border:none; margin:0px; padding:0px;">
+                <p style="background-color:rgb(80,135,50); color:rgb(255,255,255); font-size:10px; line-height:18px; margin:0; padding:0; text-align:center;">SDP Project</p>
+            </p:layoutUnit>
+        </p:layout>
+
+    </h:body>
+
+</html>

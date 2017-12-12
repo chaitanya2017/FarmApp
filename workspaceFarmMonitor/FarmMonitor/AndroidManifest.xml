@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.farm.monitor"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="17" />
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" >
+    </uses-permission>
+
+    <uses-feature android:name="android.hardware.camera" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.hardware.camera.autofocus" />
+    <uses-permission android:name="android.permission.READ_OWNER_DATA" />
+    <uses-permission android:name="android.permission.WRITE_OWNER_DATA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:name="com.farm.global.GlobalClass"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.farm.monitor.HomeActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyDCPBJjrCqzsf0w9RQlIJAWmAKdr01HTJ4" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <activity
+            android:name="com.farm.monitor.CreateMenuActivity"
+            android:label="@string/title_activity_create_menu" >
+        </activity>
+        <activity
+            android:name="com.farm.monitor.CreateFarmActivity"
+            android:label="@string/title_activity_create_farm" >
+        </activity>
+        <activity
+            android:name="com.farm.monitor.CreateFieldActivity"
+            android:label="@string/title_activity_create_field" >
+        </activity>
+        <activity
+            android:name="com.farm.monitor.CreateMonitorPointActivity"
+            android:label="@string/title_activity_create_monitor_point" >
+        </activity>
+        <activity
+            android:name="com.farm.monitor.CreatePerimeterActivity"
+            android:label="@string/title_activity_create_perimeter" >
+        </activity>
+        <activity
+            android:name="com.farm.monitor.ReportsActivity"
+            android:label="@string/title_activity_reports" >
+        </activity>
+        <activity
+            android:name="com.farm.monitor.VisitorsCountActivity"
+            android:label="@string/title_activity_visitors_count" >
+        </activity>
+        <activity
+            android:name="com.farm.monitor.CapturePhotoActivity"
+            android:label="@string/title_activity_capture_photo" >
+        </activity>
+        <activity
+            android:name="com.farm.monitor.UploadDataActivity"
+            android:label="@string/title_activity_upload_data" >
+        </activity>
+        <activity
+            android:name="com.farm.monitor.FarmsReportActivity"
+            android:label="@string/title_activity_farms_report" >
+        </activity>
+        <activity
+            android:name="com.farm.monitor.FieldsReportActivity"
+            android:label="@string/title_activity_fields_report" >
+        </activity>
+        <activity
+            android:name="com.farm.monitor.MonitorPointsReportActivity"
+            android:label="@string/title_activity_monitor_points_report" >
+        </activity>
+        <activity
+            android:name="com.farm.monitor.DisplayImagesActivity"
+            android:label="@string/title_activity_display_images" >
+        </activity>
+    </application>
+
+</manifest>

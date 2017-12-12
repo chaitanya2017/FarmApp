@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:m="http://code.google.com/p/gmaps4jsf/"
+                template="/WEB-INF/include/template.xhtml">
+
+    <ui:define name="head">
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true&amp;key=AIzaSyAd3aKQQo7JRktMDYi7-xRa0bUzfUBI4hA">
+        </script>
+        <script language="JavaScript" type="text/javascript">
+            function start() {
+                PF('busyStatusDialog').show();
+            }
+            function stop() {
+                PF('busyStatusDialog').hide();
+            }
+        </script>
+    </ui:define>
+    <ui:define name="ajaxIncludes"></ui:define>
+
+    <ui:define name="body">
+        <p:panel style="padding:0px;">
+            <h:form id="form">
+                <div align="center" class="TextFont" style="margin-top: 5px;margin-bottom: 5px;font-size: 15px;" >
+                    <p:outputLabel value="Farm #{farmBean.farmName}" />
+                </div>
+                <div class="divHeading" style="size: landscape">
+                    <p:panelGrid style="border:hidden; padding:1px;">
+                        <p:row>
+                            <p:column class="TextFont" style="text-align: left; vertical-align: middle; width:10px; border:hidden; font-size:12px;" >Farm:</p:column>
+                            <p:column style="text-align: right; vertical-align: middle; border:hidden;">
+                                <p:selectOneMenu id="laylist" value="#{farmBean.selectedFarmName}" style="width:180px">
+                                    <f:selectItem itemValue="#{null}" itemLabel="select-one" />
+                                    <f:selectItems value="#{farmBean.farmNames}" />
+                                </p:selectOneMenu>
+                            </p:column>
+                            <p:column style="border:hidden;">
+                                <p:commandButton update="form" value="Display" action="#{farmBean.getBoundaries}" style="width:150px">
+                                </p:commandButton>
+                            </p:column>
+                        </p:row>                
+                    </p:panelGrid>
+                </div>
+
+                <m:map id="placeMap" width="1080px" height="450px" partiallyTriggered="true" latitude="#{farmBean.mapLatitude}" longitude="#{farmBean.mapLongitude}" enableScrollWheelZoom="true" zoom="16" debug="true">
+                    <m:polygon id="laypolygon" lineWidth="2" hexStrokeColor="red" hexFillColor="white">
+                        <m:htmlInformationWindow htmlText="&lt;b&gt;Farm Name :&lt;/b&gt; #{farmBean.displayFarmName}&lt;br/&gt;&lt;b&gt;Area :&lt;/b&gt; #{farmBean.area} acres&lt;br/&gt;&lt;b&gt;Length :&lt;/b&gt; #{farmBean.perimeter} Kilometers&lt;br/&gt;" />
+                        <ui:repeat var="point" value="#{farmBean.farmPoints}" varStatus="status" offset="0" step="1" size="#{farmBean.farmPoints.size()}">
+                            <m:point latitude="#{point.latitude.toString()}" longitude="#{point.longitude.toString()}">                                
+                            </m:point>
+                        </ui:repeat>
+                    </m:polygon>  
+                    
+                    <ui:repeat var="itr" value="#{farmBean.fieldPoints}">                                    
+                        <m:polygon id="farmpolygon" lineWidth="2" hexStrokeColor="blue" hexFillColor="white">
+                            <ui:repeat var="point1" value="#{itr}"> 
+                                <m:point latitude="#{point1.latitude.toString()}" longitude="#{point1.longitude.toString()}">
+                                </m:point>
+                            </ui:repeat>
+                        </m:polygon>
+                    </ui:repeat>
+
+                </m:map>
+                <p:ajaxStatus onstart="javascript:start();" oncomplete="javascript:stop();" />
+                <p:dialog id="busyStatus" widgetVar="busyStatusDialog" modal="true"
+                          showHeader="false" draggable="false" visible="false"
+                          closable="false" resizable="false">
+                    <p:graphicImage value="../appimages/loading.gif" />
+                </p:dialog>
+            </h:form>
+        </p:panel>
+        <h:outputScript target="body">
+            makeactive(1);
+        </h:outputScript>
+    </ui:define>
+</ui:composition>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:m="http://code.google.com/p/gmaps4jsf/"
+                template="/WEB-INF/include/template.xhtml">
+
+    <ui:define name="head">
+        
+    </ui:define>
+    <ui:define name="ajaxIncludes"></ui:define>
+
+    <ui:define name="body">
+        <p:panel style="padding:0px;">
+            <h:form id="form">
+                <div align="center" class="TextFont" style="margin-top: 5px;margin-bottom: 5px;font-size: 15px;" >
+                    <p:outputLabel value="EMail" />
+                </div>
+                <div class="divHeading" style="size: landscape">
+                    <h:panelGrid id="loginPanel" columns="1" width="100%">
+                        <h:panelGrid columns="2">    
+                            <h:outputText value="To Email: " class="TextFont"/>
+                            <p:inputText id="toEmail" value="#{emailBean.toEmail}" style="width:250px;"></p:inputText>
+                              
+                        </h:panelGrid>
+                        <h:panelGrid columns="2">
+                            <h:outputText value="Subject:&nbsp;&nbsp;&nbsp;" class="TextFont"/>
+                            <p:inputText id="subject" value="#{emailBean.subject}" style="width:250px;"></p:inputText>
+                              
+                        </h:panelGrid>
+                        <h:panelGrid columns="2">
+                            <h:outputText value="Message: " class="TextFont"/>
+                            <p:inputTextarea  id="message" rows="20" cols="150" value="#{emailBean.message}"></p:inputTextarea>
+
+                        </h:panelGrid>
+                        <p:commandButton action="#{emailBean.send}" value="Send Email" binding="#{emailBean.emailButton}"
+                                update="form" ajax="true" id="emailButton"></p:commandButton>
+                        <h:message for="#{emailBean.emailButton}" styleClass="errorFont" title="&nbsp;"/>
+                        <br></br>
+                        <br></br>
+                    </h:panelGrid>
+                    <h:messages style="color:red;margin:8px;" />
+                </div>
+            </h:form>
+        </p:panel>
+        <h:outputScript target="body">
+            makeactive(3);
+        </h:outputScript>
+    </ui:define>
+</ui:composition>

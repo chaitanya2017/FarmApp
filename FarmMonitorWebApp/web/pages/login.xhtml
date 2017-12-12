@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"        
+                template="/WEB-INF/include/templatelogin.xhtml">
+
+    <ui:define name="head">
+	        
+    </ui:define>
+    
+    <ui:define name="body">
+        <p:panel style="padding:0px;">
+            <h:form id="loginForm" >
+		<p:panel header="Login" style="width: 320px; margin-left: auto; margin-right:auto; margin-top:40px; -webkit-box-shadow: 2px 2px 23px 3px rgba(80,135,50,0.65);
+		-moz-box-shadow: 2px 2px 23px 3px rgba(80,135,50,0.65);
+                box-shadow: 2px 2px 23px 3px rgba(80,135,50,0.65); border:solid; border-width:1px; border-color:rgb(80,135,50);">
+	
+                    <p:spacer>&nbsp;</p:spacer>
+                    <p:spacer>&nbsp;</p:spacer>
+                    <h:panelGrid id="loginPanel" columns="1" width="100%">
+                        <h:panelGrid columns="2">    
+                            <h:outputText value="Username: " class="TextFont"/>
+                            <p:inputText id="username" value="#{loginBean.uname}" style="width:170px;"></p:inputText>
+                            <p:message for="username"></p:message>
+                              
+                        </h:panelGrid>
+                        <h:panelGrid columns="2">
+                            <h:outputText value="&nbsp;Password: " class="TextFont"/>
+                            <p:password id="password" value="#{loginBean.password}" feedback="false" style="width:170px;"></p:password>
+                            <p:message for="password"></p:message>
+                              
+                        </h:panelGrid>
+                        <p:commandButton action="#{loginBean.loginProject}" value="Login" binding="#{loginBean.loginButton}"
+                        update="loginForm" ajax="true" styleClass="loginButtonFont" id="loginButton"></p:commandButton>
+                        <h:message for="#{loginBean.loginButton}" styleClass="errorFont" title="&nbsp;"/>
+                        <br></br>
+                        <br></br>
+                    </h:panelGrid>
+                    <h:messages style="color:red;margin:8px;" />
+		</p:panel>
+		</h:form>
+        </p:panel>
+       
+    </ui:define>
+
+</ui:composition>
+

@@ -1,0 +1,154 @@
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linearLayoutMainMenu"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <fragment
+        android:id="@+id/mapfragmentMapCreateMenu"
+        class="com.google.android.gms.maps.MapFragment"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <TableLayout
+            android:id="@+id/tableLayoutMainSelectionMapMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:stretchColumns="*" >
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/menumargin" >
+
+               
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/menumargin" >
+
+                <TextView
+                    android:id="@+id/textViewCreateMyLocation"
+                    android:layout_width="0px"
+                    android:layout_height="45dp"
+                    android:layout_marginRight="2dp"
+                     android:layout_marginLeft="2dp"
+                    android:layout_weight="1"
+                    android:background="@color/menubackground"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text="My Location"
+                    android:textColor="@color/mapmenutextcolor"
+                    android:textSize="15dp" >
+                </TextView>
+
+                <TextView
+                    android:id="@+id/textViewCreateCapturePhotos"
+                    android:layout_width="0px"
+                    android:layout_height="45dp"
+                    android:layout_marginRight="2dp"
+                     android:layout_marginLeft="2dp"
+                    android:layout_weight="1"
+                    android:background="@color/menubackground"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text="Capture Photo"
+                    android:textColor="@color/mapmenutextcolor"
+                    android:textSize="15dp" >
+                </TextView>
+
+                <TextView
+                    android:id="@+id/textViewCreatePhotos"
+                    android:layout_width="0px"
+                    android:layout_height="45dp"
+                    android:layout_marginRight="2dp"
+                     android:layout_marginLeft="2dp"
+                    android:layout_weight="1"
+                    android:background="@color/menubackground"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text="Photos"
+                    android:textColor="@color/mapmenutextcolor"
+                    android:textSize="15dp" >
+                </TextView>
+				
+            </TableRow>
+        </TableLayout>
+
+        <TableLayout
+            android:id="@+id/tableLayoutMainSelectionMainMenu"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:stretchColumns="*" >
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/menumargin" >
+
+                
+
+               
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/menumargin" >
+
+                
+
+                <TextView
+                    android:id="@+id/textViewCreateFarm"
+                    android:layout_width="0px"
+                    android:layout_height="45dp"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_weight="1"
+                    android:background="@color/menubackground"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text="Farm"
+                    android:textColor="@color/mapmenutextcolor"
+                    android:textSize="15dp" >
+                </TextView>
+
+                <TextView
+                    android:id="@+id/textViewCreateField"
+                    android:layout_width="0px"
+                    android:layout_height="45dp"
+                    android:layout_marginRight="2dp"
+                     android:layout_marginLeft="2dp"
+                    android:layout_weight="1"
+                    android:background="@color/menubackground"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text="Field"
+                    android:textColor="@color/mapmenutextcolor"
+                    android:textSize="15dp" >
+                </TextView>
+				<TextView
+                    android:id="@+id/textViewCreateMonitorPoint"
+                    android:layout_width="0px"
+                    android:layout_height="45dp"
+                    android:layout_marginRight="2dp"
+                     android:layout_marginLeft="2dp"
+                    android:layout_weight="1"
+                    android:background="@color/menubackground"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text="MonitorPoint"
+                    android:textColor="@color/mapmenutextcolor"
+                    android:textSize="15dp" >
+                </TextView>
+                
+            </TableRow>
+        </TableLayout>
+    </fragment>
+
+</LinearLayout>

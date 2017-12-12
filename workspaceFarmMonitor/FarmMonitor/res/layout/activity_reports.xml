@@ -1,0 +1,160 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linearLayoutMainMenu"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+     android:background="@android:color/white"
+    android:orientation="vertical" >
+
+    <TableLayout
+        android:id="@+id/tableLayoutMainSelectionMapMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:stretchColumns="*" >
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/menumargin" >
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="20dp" >
+            </View>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/menumargin" >
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/menumargin" >
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="20dp" >
+            </View>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/menumargin" >
+
+            <TextView
+                android:id="@+id/textViewReportsFarms"
+                android:layout_width="0px"
+                android:layout_height="55dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_weight="1"
+                android:background="@color/menubackground"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="Farms"
+                android:textColor="@color/mapmenutextcolor"
+                android:textSize="18dp" >
+            </TextView>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/menumargin" >
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="20dp" >
+            </View>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/menumargin" >
+
+            <TextView
+                android:id="@+id/textViewReportsFields"
+                android:layout_width="0px"
+                android:layout_height="55dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_weight="1"
+                android:background="@color/menubackground"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="Fields"
+                android:textColor="@color/mapmenutextcolor"
+                android:textSize="18dp" >
+            </TextView>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/menumargin" >
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="20dp" >
+            </View>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/menumargin" >
+
+            <TextView
+                android:id="@+id/textViewReportsMonitoringPoints"
+                android:layout_width="0px"
+                android:layout_height="55dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_weight="1"
+                android:background="@color/menubackground"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="Monitor Points"
+                android:textColor="@color/mapmenutextcolor"
+                android:textSize="18dp" >
+            </TextView>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/menumargin" >
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="20dp" >
+            </View>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/menumargin" >
+
+            <TextView
+                android:id="@+id/textViewReportsVisitorsCount"
+                android:layout_width="0px"
+                android:layout_height="55dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_weight="1"
+                android:background="@color/menubackground"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="Visitors Count"
+                android:textColor="@color/mapmenutextcolor"
+                android:textSize="18dp" >
+            </TextView>
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>

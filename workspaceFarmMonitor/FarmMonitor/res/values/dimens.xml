@@ -1,0 +1,19 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="medium">20dp</dimen>
+    <dimen name="leftwidth">60dp</dimen>
+    <dimen name="rightwidth">75dp</dimen>
+    <dimen name ="fieldheight">45dp</dimen>
+    <dimen name ="staticfieldheight">40dp</dimen>
+    <dimen name="sptextsize">17sp</dimen>
+    <dimen name="datetextsize">20sp</dimen>
+    <dimen name="reportdatatextsize">10sp</dimen>
+    <dimen name="reportheadertextsize">10sp</dimen>
+    <dimen name="reportrowtextsize">15sp</dimen>
+    
+    
+
+</resources>
